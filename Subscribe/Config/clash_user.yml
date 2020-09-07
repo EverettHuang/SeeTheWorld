@@ -18,36 +18,64 @@ proxies:
     alpn:
       - h2
       - http/1.1
+  - name: "US-GA"
+    type: http
+    url: ""
+    interval: 86400
+    path: ./Proxy/ProxyList.yaml
+    health-check:
+      enable: false
+  - name: "US-GA-Netflix"
+    type: http
+    url: ""
+    interval: 86400
+    path: ./Proxy/ProxyNetflix.yaml
+    health-chek:
+      enable: false
+
 #代理组
 proxy-groups:
   - name: Netflix
     proxies:
-      - DC6-GIA
+      - US-GA-Netflix
     type: select
-  - name: Proxy
+  - name: Default
     proxies:
-      - DC9-GIA
+      - US-GA
     type: select
   - name: Direct
     proxies:
       - DIRECT
     type: select
+  - name: Apple
+    proxies:
+      - DIRECT
+
+rule-providers:
+  Netflix:
+    type: http
+    behavior: classical
+    path: ./RuleSet/Netflix.yaml
+    url: https://raw.githubusercontent.com/ConnersHua/Profiles/master/Quantumult/X/Filter/Media/Netflix.list
+    interval: 86400
+
+
 #分流规则
 rules:
-  - DOMAIN,www-cdn.icloud.com.akadns.net,Direct
-  - DOMAIN-SUFFIX,mzstatic.com,Direct
-  - DOMAIN-SUFFIX,me.com,Direct
-  - DOMAIN-SUFFIX,icloud-content.com,Direct
-  - DOMAIN-SUFFIX,icloud.com.cn,Direct
-  - DOMAIN-SUFFIX,icloud.com,Direct
-  - DOMAIN-SUFFIX,crashlytics.com,Direct
-  - DOMAIN-SUFFIX,cdn-apple.com,Direct
-  - DOMAIN-SUFFIX,appstore.com,Direct
-  - DOMAIN-SUFFIX,apple-cloudkit.com,Direct
-  - DOMAIN-SUFFIX,apple.com.cn,Direct
-  - DOMAIN-SUFFIX,apple.com,Direct
-  - DOMAIN-SUFFIX,apple.co,Direct
-  - DOMAIN-SUFFIX,aaplimg.com,Direct
+  - DOMAIN,www-cdn.icloud.com.akadns.net,Apple
+  - DOMAIN-SUFFIX,mzstatic.com,Apple
+  - DOMAIN-SUFFIX,me.com,Apple
+  - DOMAIN-SUFFIX,icloud-content.com,Apple
+  - DOMAIN-SUFFIX,icloud.com.cn,Apple
+  - DOMAIN-SUFFIX,icloud.com,Apple
+  - DOMAIN-SUFFIX,crashlytics.com,Apple
+  - DOMAIN-SUFFIX,cdn-apple.com,Apple
+  - DOMAIN-SUFFIX,appstore.com,Apple
+  - DOMAIN-SUFFIX,apple-cloudkit.com,Apple
+  - DOMAIN-SUFFIX,apple.com.cn,Apple
+  - DOMAIN-SUFFIX,apple.com,Apple
+  - DOMAIN-SUFFIX,apple.co,Apple
+  - DOMAIN-SUFFIX,aaplimg.com,Apple
   - DOMAIN-SUFFIX,fast.com,Netflix
   - DOMAIN-SUFFIX,netflix.com,Netflix
   - DOMAIN-SUFFIX,netflix.net,Netflix
@@ -84,4 +112,4 @@ rules:
   - IP-CIDR,119.28.28.28/32,Direct
   - IP-CIDR,182.254.116.0/24,Direct
   - GEOIP,CN,Direct
-  - MATCH,Proxy
+  - MATCH,Default
