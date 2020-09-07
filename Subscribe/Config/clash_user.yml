@@ -18,16 +18,18 @@ proxies:
     alpn:
       - h2
       - http/1.1
-  - name: "Proxy"
+        
+proxy-providers:
+  name: "Proxy"
     type: http
-    url: "https://raw.githubusercontent.com/EverettHuang/SeeTheWorld/master/Subscribe/Subnode/freeranch_clash"
+    url: "https://raw.githubusercontent.com/EverettHuang/SeeTheWorld/master/Subscribe/Subnode/freeranch_clash.yaml"
     interval: 86400
     path: ./Proxy/ProxyList.yaml
     health-check:
       enable: false
-  - name: "Proxy-Netflix"
+  name: "Proxy-Netflix"
     type: http
-    url: "https://raw.githubusercontent.com/EverettHuang/SeeTheWorld/master/Subscribe/Subnode/freeranch_clash_netflix"
+    url: "https://raw.githubusercontent.com/EverettHuang/SeeTheWorld/master/Subscribe/Subnode/freeranch_clash_netflix.yaml"
     interval: 86400
     path: ./Proxy/ProxyNetflix.yaml
     health-chek:
