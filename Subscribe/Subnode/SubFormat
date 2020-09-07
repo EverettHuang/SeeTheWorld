@@ -1,0 +1,10 @@
+Pharos pro and Shadowrocket
+
+
+QuantumultX
+trojan=domain:port, password=yourpassword, over-tls=true, tls-verification=true, fast-open=false, udp-relay=true, tls13=true, tag=nodename
+
+
+
+Surge
+nodename = trojan, domain, port, password=yourpassword
