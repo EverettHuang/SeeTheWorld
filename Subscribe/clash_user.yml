@@ -1,6 +1,6 @@
 #代理节点
 proxies:
-  - name: DC6-GIA
+  - name: Proxy-Netflix
     type: trojan
     server: blog.freeranch.ml
     port: 443
@@ -9,7 +9,7 @@ proxies:
     alpn:
       - h2
       - http/1.1
-  - name: DC9-GIA
+  - name: Proxy
     type: trojan
     server: www.freeranch.ml
     port: 443
@@ -19,22 +19,6 @@ proxies:
       - h2
       - http/1.1
         
-proxy-providers:
-  name: "Proxy"
-    type: http
-    url: "https://raw.githubusercontent.com/EverettHuang/SeeTheWorld/master/Subscribe/Subnode/freeranch_clash.yml"
-    interval: 86400
-    path: ./Proxy/ProxyList.yml
-    health-check:
-      enable: false
-  name: "Proxy-Netflix"
-    type: http
-    url: "https://raw.githubusercontent.com/EverettHuang/SeeTheWorld/master/Subscribe/Subnode/freeranch_clash_netflix.yml"
-    interval: 86400
-    path: ./Proxy/ProxyNetflix.yml
-    health-chek:
-      enable: false
-
 #代理组
 proxy-groups:
   - name: Netflix
@@ -45,7 +29,7 @@ proxy-groups:
     proxies:
       - Proxy
     type: select
-  - name: Direct
+  - name: ChinaIP
     proxies:
       - DIRECT
     type: select
@@ -104,5 +88,5 @@ rules:
   - IP-CIDR,224.0.0.0/4,Direct
   - IP-CIDR,119.28.28.28/32,Direct
   - IP-CIDR,182.254.116.0/24,Direct
-  - GEOIP,CN,Direct
+  - GEOIP,CN,ChinaIP
   - MATCH,Default

@@ -40,7 +40,7 @@ server=119.28.28.28
 
 
 [server_remote]
-https://raw.githubusercontent.com/EverettHuang/SeeTheWorld/master/Subscribe/freeranch-qx, tag=BWG, update-interval=86400, opt-parser=false,enabled=true, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/GIA.png
+https://raw.githubusercontent.com/EverettHuang/SeeTheWorld/master/Subscribe/freeranch_QX, tag=BWG, update-interval=86400, opt-parser=false,enabled=true, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/GIA.png
 
 
 #-------------------------------------------------------------#
