@@ -1,0 +1,10 @@
+ - name: "US-GA"
+    type: trojan
+    server: www.freeranch.ml
+    port: 443
+    password: FreeRanchZZZ
+    udp: true
+    alpn:
+      - h2
+      - http/1.1
+    skip-cert-verify: true

@@ -18,16 +18,16 @@ proxies:
     alpn:
       - h2
       - http/1.1
-  - name: "US-GA"
+  - name: "Proxy"
     type: http
-    url: ""
+    url: "https://raw.githubusercontent.com/EverettHuang/SeeTheWorld/master/Subscribe/Subnode/freeranch_clash"
     interval: 86400
     path: ./Proxy/ProxyList.yaml
     health-check:
       enable: false
-  - name: "US-GA-Netflix"
+  - name: "Proxy-Netflix"
     type: http
-    url: ""
+    url: "https://raw.githubusercontent.com/EverettHuang/SeeTheWorld/master/Subscribe/Subnode/freeranch_clash_netflix"
     interval: 86400
     path: ./Proxy/ProxyNetflix.yaml
     health-chek:
@@ -37,11 +37,11 @@ proxies:
 proxy-groups:
   - name: Netflix
     proxies:
-      - US-GA-Netflix
+      - Proxy-Netflix
     type: select
   - name: Default
     proxies:
-      - US-GA
+      - Proxy
     type: select
   - name: Direct
     proxies:
@@ -50,15 +50,6 @@ proxy-groups:
   - name: Apple
     proxies:
       - DIRECT
-
-rule-providers:
-  Netflix:
-    type: http
-    behavior: classical
-    path: ./RuleSet/Netflix.yaml
-    url: https://raw.githubusercontent.com/ConnersHua/Profiles/master/Quantumult/X/Filter/Media/Netflix.list
-    interval: 86400
-
 
 #分流规则
 rules:
