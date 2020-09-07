@@ -1,3 +1,4 @@
+proxies:
  - name: "US-GA-Netflix"
     type: trojan
     server: blog.freeranch.ml

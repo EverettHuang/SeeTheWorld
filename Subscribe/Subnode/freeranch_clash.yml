@@ -1,3 +1,4 @@
+proxies:
  - name: "US-GA"
     type: trojan
     server: www.freeranch.ml

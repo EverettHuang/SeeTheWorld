@@ -22,16 +22,16 @@ proxies:
 proxy-providers:
   name: "Proxy"
     type: http
-    url: "https://raw.githubusercontent.com/EverettHuang/SeeTheWorld/master/Subscribe/Subnode/freeranch_clash.yaml"
+    url: "https://raw.githubusercontent.com/EverettHuang/SeeTheWorld/master/Subscribe/Subnode/freeranch_clash.yml"
     interval: 86400
-    path: ./Proxy/ProxyList.yaml
+    path: ./Proxy/ProxyList.yml
     health-check:
       enable: false
   name: "Proxy-Netflix"
     type: http
-    url: "https://raw.githubusercontent.com/EverettHuang/SeeTheWorld/master/Subscribe/Subnode/freeranch_clash_netflix.yaml"
+    url: "https://raw.githubusercontent.com/EverettHuang/SeeTheWorld/master/Subscribe/Subnode/freeranch_clash_netflix.yml"
     interval: 86400
-    path: ./Proxy/ProxyNetflix.yaml
+    path: ./Proxy/ProxyNetflix.yml
     health-chek:
       enable: false
 
