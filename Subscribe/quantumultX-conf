@@ -2,171 +2,57 @@
 #EMAIL:freeeverettmail@gmail.com
 #--------------------------------------------------------------#
 
+[server_local]
+# 本地服务器部分
+trojan=usnode.seetheworld.space:443, password=XXXXXX, over-tls=true, tle-verification=true, fast-open=false, udp-relay=true, tag=Proxy
+trojan=usmedia.seetheworld.space:443, password=XXXXXX, over-tls=true, tle-verification=true, fast-open=false, udp-relay=true, tag=Proxy-Media
 
 [general]
-#general 模块内为一些通用的设置参数项
-#server_check_url
-server_check_url= http://www.google.com/generate_204
-#resource_parser_url
-#geo_location_checker
-#running_mode_trigger
-#ssid_suspended_list
-#dns_exclusion_list
-#udp_whitelist
-#excluded_routes= 192.168.0.0/16, 172.16.0.0/12, 100.64.0.0/10, 10.0.0.0/8
-#icmp_auto_reply=true
-
 
 #--------------------------------------------------------------#
 
 
 [dns]
 #指定的 dns服务器
-server=114.114.114.114
-server=202.141.176.93 
-server=202.141.178.13
-server=117.50.10.10
-server=223.5.5.5
-server=119.29.29.29:53
-server=119.28.28.28
-#指定域名解析dns
-#server=/*.taobao.com/223.5.5.5
-#server=/*.tmall.com/223.5.5.5
-#address=/example5.com/192.168.16.18
-#address=/example6.com/[2001:8d3:8d3:8d3:8d3:8d3:8d3:8d3]
-
+#server=114.114.114.114
 
 #--------------------------------------------------------------#
 
-
 [server_remote]
-https://raw.githubusercontent.com/EverettHuang/SeeTheWorld/master/Subscribe/freeranch_QX, tag=BWG, update-interval=86400, opt-parser=false,enabled=true, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/GIA.png
-
 
 #-------------------------------------------------------------#
 
-
 [policy]
-#以下为策略组[policy]部分
-#https://github.com/Koolson/Qure
 static= Apple, proxy, direct, reject, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Apple.png
 static= Netflix, proxy, direct, reject, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Netflix.png
-#static= Unbreak, proxy, direct, reject, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Quantumult_X.png
-#static= Global, proxy, direct, reject, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Global.png
-static= China, proxy, direct, reject, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/China_Map.png
-# static 策略组中，你需要手动选择想要的节点/策略组。
-# available 策略组将按顺序选择你列表中第一个可用的节点。
-# round-robin 策略组，将按列表的顺序轮流使用其中的节点。
-# ssid 策略组，将根据你所设定的网络来自动切换节点/策略组
-#img-url 参数用于指定策略组图标，可远程，也可本地/iCloud(Quantumult X/Images路径下) （108*108 大小）
-#direct/proxy/reject 则只能用本地图标，名字分别为 direct.png, proxy.png,reject.png 放置于 Images 文件夹下即可生效 (108*108 大小)
-#server-tag-regex 以及 resource-tag-regex 参数用于正则筛选来建立策略组
-#以下是quantumultX的3普通种策略组类型写法
-#static=policy-name-1, Sample-A, Sample-B, Sample-C
-#available=policy-name-2, Sample-A, Sample-B, Sample-C
-#round-robin=policy-name-3, Sample-A, Sample-B, Sample-C
-#下面是ssid策略组示范
-#ssid=policy-name-4, Sample-A, Sample-B, LINK_22E171:Sample-B, LINK_22E172:Sample-C
-# "tag" 跟 "enabled" 为可选参数，分别表示 “标签”及“开启状态”, true 为开启，false 关闭.
-# update-interval 为更新时间参数，单位 秒, 默认更新时间为 24*60*60=86400 秒，也就是24小时.
-# opt-parser=true/false 用于控制是否对本订阅 开启资源解析器，不写或者 false 表示不启用解析器;
-
 
 #--------------------------------------------------------------#
 
 
 [filter_remote]
-#规则分流远程订阅
-#远程分流模块，可使用force-policy来强制使用策略偏好, 替换远程规则内所指定的策略组
-#同样的
-# update-interval 为更新时间参数，单位 秒, 默认更新时间为 24*60*60=86400 秒，也就是24小时.
-# opt-parser=true/false 用于控制是否对本订阅 开启资源解析器，不写或者 false 表示不启用解析器;
-#支持本地/iCloud规则文件，位于Quantumult X/Profiles路径下
-#filter.txt, tag=XXXX, enabled=true
-#https://github.com/ConnersHua/Profiles/tree/master/Quantumult/X/Filter/Media
-#https://raw.githubusercontent.com/ConnersHua/Profiles/master/Quantumult/X/Filter/Unbreak.list, update-interval=86400, enabled=true, tag=Unbreak
 https://raw.githubusercontent.com/ConnersHua/Profiles/master/Quantumult/X/Filter/Media/Netflix.list, update-interval=86400, enabled=true, tag=Netflix
 https://raw.githubusercontent.com/ConnersHua/Profiles/master/Quantumult/X/Filter/Apple.list, update-interval=86400, enabled=true, tag=Apple
-#https://raw.githubusercontent.com/ConnersHua/Profiles/master/Quantumult/X/Filter/Global.list, update-interval=86400, enabled=true, tag=Global
-https://raw.githubusercontent.com/ConnersHua/Profiles/master/Quantumult/X/Filter/China.list, update-interval=86400, enabled=true, tag=China
-
 
 #--------------------------------------------------------------#
-
-
-[server_local]
-# 本地服务器部分
-# 以下示范都是 ip(域名):端口，
-# 比如 vmess-a.203.167.55.4:777 ，实际是 203.167.55.4:777
-# 前面的 ss-a，ws-tls这些，只是为了让你快速找到自己节点的类型
-# 实际使用时，请不要真的 傻乎乎的 写 vmess-a.203.167.55.4:777 这种。
-#shadowsocks以及shadowsocksR类型
-#shadowsocks=ss-a.example.com:80, method=chacha20, password=pwd, obfs=http, obfs-host=bing.com, obfs-uri=/resource/file, fast-open=false, udp-relay=false, server_check_url=http://www.apple.com/generate_204, tag=Sample-A
-#shadowsocks=ss-b.example.com:80, method=chacha20, password=pwd, obfs=http, obfs-host=bing.com, obfs-uri=/resource/file, fast-open=false, udp-relay=false, tag=Sample-B
-#shadowsocks=ss-c.example.com:443, method=chacha20, password=pwd, obfs=tls, obfs-host=bing.com, fast-open=false, udp-relay=false, tag=Sample-C
-#shadowsocks=ssr-a.example.com:443, method=chacha20, password=pwd, ssr-protocol=auth_chain_b, ssr-protocol-param=def, obfs=tls1.2_ticket_fastauth, obfs-host=bing.com, tag=Sample-D
-#shadowsocks=ws-a.example.com:80, method=aes-128-gcm, password=pwd, obfs=ws, obfs-uri=/ws, fast-open=false, udp-relay=false, tag=Sample-E
-#shadowsocks=ws-b.example.com:80, method=aes-128-gcm, password=pwd, obfs=ws, fast-open=false, udp-relay=false, tag=Sample-F
-#shadowsocks=ws-tls-a.example.com:443, method=aes-128-gcm, password=pwd, obfs=wss, obfs-uri=/ws, fast-open=false, udp-relay=false, tag=Sample-G
-# vmess 类型，ws，wss(ws+tls),over-tls,tcp 
-# ws 类型
-#vmess=ws-c.example.com:80, method=chacha20-ietf-poly1305, password= 23ad6b10-8d1a-40f7-8ad0-e3e35cd32291, obfs-host=ws-c.example.com, obfs=ws, obfs-uri=/ws, fast-open=false, udp-relay=false, tag=Sample-H
-# wss(ws+tls) 类型
-#vmess=ws-tls-b.example.com:443, method=chacha20-ietf-poly1305, password= 23ad6b10-8d1a-40f7-8ad0-e3e35cd32291, obfs-host=ws-tls-b.example.com, obfs=wss, obfs-uri=/ws, tls-verification=true,fast-open=false, udp-relay=false, tag=Sample-I
-# tcp 类型
-#vmess=vmess-a.example.com:80, method=aes-128-gcm, password=23ad6b10-8d1a-40f7-8ad0-e3e35cd32291, fast-open=false, udp-relay=false, tag=Sample-J
-#vmess=vmess-b.example.com:80, method=none, password=23ad6b10-8d1a-40f7-8ad0-e3e35cd32291, fast-open=false, udp-relay=false, tag=Sample-K
-# over-tls 类型
-#vmess=vmess-over-tls.example.com:443, method=none, password=23ad6b10-8d1a-40f7-8ad0-e3e35cd32291, obfs-host=vmess-over-tls.example.com, obfs=over-tls, tls-verification=true, fast-open=false, udp-relay=false, tag=Sample-L
-# http(s) 类型
-#http=http.example.com:80, username=name, password=pwd, fast-open=false, udp-relay=false, tag=http
-#http=https.example.com:443, username=name, password=pwd, over-tls=true, tls-verification=true, tls-host=example.com, tls-verification=true, fast-open=false, udp-relay=false, tag=http-tls
-# trojan 类型
-#trojan=example.com:443, password=pwd, over-tls=true, tls-verification=true, fast-open=false, udp-relay=false, tag=trojan-tls-01
-#trojan=example.com:443, password=pwd, over-tls=true, tls-verification=true, fast-open=false, udp-relay=false, tag=trojan-tls-01
-#trojan=192.168.1.1:443, password=pwd, over-tls=true, tls-host=example.com, tls-verification=true, fast-open=false, udp-relay=false, tag=trojan-tls-02
-
-
-#--------------------------------------------------------------#
-
 
 [filter_local]
-#本地分流规则(对于完全相同的某条规则，本地的将优先生效)
-#user-agent, ?abc*, proxy
-#host, www.google.com, proxy
-#host-keyword, adsite, reject
-#host-suffix, googleapis.com, proxy
 ip-cidr, 10.0.0.0/8, direct
 ip-cidr, 127.0.0.0/8, direct
 ip-cidr, 172.16.0.0/12, direct
 ip-cidr, 192.168.0.0/16, direct
 ip-cidr, 224.0.0.0/24, direct
-# 已采用 ip 池数据，因此注释掉 geoip cn
 geoip, cn, direct
-#不在上述规则中(远程以及本地)的剩余请求，将走final 指定的节点/策略
 final, proxy
 
 
 #--------------------------------------------------------------#
 
-
 [rewrite_remote]
-#rewrite 复写远程订阅
-#远程复写模块，内包含主机名hostname以及复写rewrite规则
-# update-interval 为更新时间参数，单位 秒, 默认更新时间为 24*60*60=86400 秒，也就是24小时.
-# opt-parser=true/false 用于控制是否对本订阅 开启资源解析器，不写或者 false 表示不启用解析器;
-#支持本地/iCloud的复写规则文件，位于Quantumult X/Profiles路径
-
 
 #--------------------------------------------------------------#
 
 
 [task_local]
-#任务模块，可用于签到,天气话费查询等
-#js文件放于iCloud或者本机的Quantumult X/Scripts 路径下。TF版本可直接使用远程js链接
-#从 “分” 开始的5位cron 写法，具体 cron 表达式可自行 Google
-#tag参数为 task 命名标识;
-#img-url参数用于指定 task 的图标(108*108)
 
 
 #--------------------------------------------------------------#

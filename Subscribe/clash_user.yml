@@ -1,29 +1,34 @@
+#浏览器配置面板http://clash.razord.top/
+external-controller: '0.0.0.0:9090'
+secret: '123456'
+port: 1090
+mode: rule
+ipv6: false
 #代理节点
 proxies:
-  - name: Proxy-Netflix
-    type: trojan
-    server: blog.freeranch.ml
-    port: 443
-    password: FreeRanchZZZ
-    udp: true
-    alpn:
-      - h2
-      - http/1.1
   - name: Proxy
     type: trojan
-    server: www.freeranch.ml
+    server: usnode.seetheworld.space
     port: 443
-    password: FreeRanchZZZ
+    password: 
     udp: true
     alpn:
       - h2
       - http/1.1
-        
+  - name: Proxy-Media
+    type: trojan
+    server: usmedia.seetheworld.space
+    port: 443
+    password: 
+    udp: true
+    alpn:
+      - h2
+      - http/1.1
 #代理组
 proxy-groups:
-  - name: Netflix
+  - name: Media
     proxies:
-      - Proxy-Netflix
+      - Proxy-Media
     type: select
   - name: Default
     proxies:
@@ -37,7 +42,6 @@ proxy-groups:
     proxies:
       - DIRECT
     type: select
-
 #分流规则
 rules:
   - DOMAIN,www-cdn.icloud.com.akadns.net,Apple
@@ -54,33 +58,33 @@ rules:
   - DOMAIN-SUFFIX,apple.com,Apple
   - DOMAIN-SUFFIX,apple.co,Apple
   - DOMAIN-SUFFIX,aaplimg.com,Apple
-  - DOMAIN-SUFFIX,fast.com,Netflix
-  - DOMAIN-SUFFIX,netflix.com,Netflix
-  - DOMAIN-SUFFIX,netflix.net,Netflix
-  - DOMAIN-SUFFIX,nflxext.com,Netflix
-  - DOMAIN-SUFFIX,nflximg.com,Netflix
-  - DOMAIN-SUFFIX,nflximg.net,Netflix
-  - DOMAIN-SUFFIX,nflxso.net,Netflix
-  - DOMAIN-SUFFIX,nflxvideo.net,Netflix
-  - DOMAIN-SUFFIX,netflixdnstest0.com,Netflix
-  - DOMAIN-SUFFIX,netflixdnstest1.com,Netflix
-  - DOMAIN-SUFFIX,netflixdnstest2.com,Netflix
-  - DOMAIN-SUFFIX,netflixdnstest3.com,Netflix
-  - DOMAIN-SUFFIX,netflixdnstest4.com,Netflix
-  - DOMAIN-SUFFIX,netflixdnstest5.com,Netflix
-  - DOMAIN-SUFFIX,netflixdnstest6.com,Netflix
-  - DOMAIN-SUFFIX,netflixdnstest7.com,Netflix
-  - DOMAIN-SUFFIX,netflixdnstest8.com,Netflix
-  - DOMAIN-SUFFIX,netflixdnstest9.com,Netflix
-  - IP-CIDR,23.246.0.0/18,Netflix
-  - IP-CIDR,37.77.184.0/21,Netflix
-  - IP-CIDR,45.57.0.0/17,Netflix
-  - IP-CIDR,64.120.128.0/17,Netflix
-  - IP-CIDR,66.197.128.0/17,Netflix
-  - IP-CIDR,108.175.32.0/20,Netflix
-  - IP-CIDR,192.173.64.0/18,Netflix
-  - IP-CIDR,198.38.96.0/19,Netflix
-  - IP-CIDR,198.45.48.0/20,Netflix
+  - DOMAIN-SUFFIX,fast.com,Media
+  - DOMAIN-SUFFIX,netflix.com,Media
+  - DOMAIN-SUFFIX,netflix.net,Media
+  - DOMAIN-SUFFIX,nflxext.com,Media
+  - DOMAIN-SUFFIX,nflximg.com,Media
+  - DOMAIN-SUFFIX,nflximg.net,Media
+  - DOMAIN-SUFFIX,nflxso.net,Media
+  - DOMAIN-SUFFIX,nflxvideo.net,Media
+  - DOMAIN-SUFFIX,netflixdnstest0.com,Media
+  - DOMAIN-SUFFIX,netflixdnstest1.com,Media
+  - DOMAIN-SUFFIX,netflixdnstest2.com,Media
+  - DOMAIN-SUFFIX,netflixdnstest3.com,Media
+  - DOMAIN-SUFFIX,netflixdnstest4.com,Media
+  - DOMAIN-SUFFIX,netflixdnstest5.com,Media
+  - DOMAIN-SUFFIX,netflixdnstest6.com,Media
+  - DOMAIN-SUFFIX,netflixdnstest7.com,Media
+  - DOMAIN-SUFFIX,netflixdnstest8.com,Media
+  - DOMAIN-SUFFIX,netflixdnstest9.com,Media
+  - IP-CIDR,23.246.0.0/18,Media
+  - IP-CIDR,37.77.184.0/21,Media
+  - IP-CIDR,45.57.0.0/17,Media
+  - IP-CIDR,64.120.128.0/17,Media
+  - IP-CIDR,66.197.128.0/17,Media
+  - IP-CIDR,108.175.32.0/20,Media
+  - IP-CIDR,192.173.64.0/18,Media
+  - IP-CIDR,198.38.96.0/19,Media
+  - IP-CIDR,198.45.48.0/20,Media
   - IP-CIDR,192.168.0.0/16,DIRECT
   - IP-CIDR,10.0.0.0/8,DIRECT
   - IP-CIDR,172.16.0.0/12,DIRECT
