@@ -10,7 +10,7 @@ proxies:
     type: trojan
     server: usnode.seetheworld.space
     port: 443
-    password: 
+    password: 97435f00-9e78-4ed4-a91a-318b5ce55dd4
     udp: true
     alpn:
       - h2
@@ -19,7 +19,7 @@ proxies:
     type: trojan
     server: usmedia.seetheworld.space
     port: 443
-    password: 
+    password: 9c71f0ba-3e5c-4f46-ba82-896baaeabf6f
     udp: true
     alpn:
       - h2
